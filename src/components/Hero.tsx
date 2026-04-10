@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/mouse-hero.jpg";
+import MouseScene from "./MouseScene";
 
 const Hero = () => {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img src={heroImg} alt="RGB Gaming Mouse" className="h-full w-full object-cover opacity-40" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
-      </div>
+      {/* 3D Scene background */}
+      <MouseScene />
+
+      {/* Dark gradient overlays for text readability */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1
-            className="mb-6 font-display text-4xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl"
+            className="mb-6 font-display text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
@@ -37,7 +37,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="mb-8 max-w-lg text-lg text-muted-foreground"
+            className="mb-8 max-w-md text-base text-muted-foreground"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -57,12 +57,6 @@ const Hero = () => {
             >
               SHOP NOW
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#features"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 font-display text-sm font-semibold tracking-wider text-foreground transition-colors hover:border-primary/50 hover:text-primary"
-            >
-              LEARN MORE
             </a>
           </motion.div>
         </div>
